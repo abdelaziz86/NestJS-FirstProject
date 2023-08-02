@@ -36,4 +36,8 @@ export class BookService {
             runValidators: true,
         });
     }
+
+    async delete(id: string): Promise<Book> {
+        return await this.bookModel.findByIdAndRemove(id);
+    }
 }
