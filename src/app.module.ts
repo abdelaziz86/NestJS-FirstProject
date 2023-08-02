@@ -12,7 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       isGlobal : true
     }),
     MongooseModule.forRoot(process.env.DB_URI, {
-      dbName: process.env.DB_NAME 
+      dbName: process.env.DB_NAME,
     }), // ============ for mongo
     BookModule
   ],

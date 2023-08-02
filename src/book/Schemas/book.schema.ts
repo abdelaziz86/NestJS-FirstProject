@@ -1,4 +1,4 @@
-import { Schema } from "@nestjs/mongoose";
+import { Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export enum Category {
     ADVENTURE = 'Adventure',
@@ -19,3 +19,6 @@ export class Book {
     category :  Category
 
 }
+
+
+export const BookSchema = SchemaFactory.createForClass(Book);
