@@ -1,14 +1,16 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, Query } from '@nestjs/common';
 import { BookService } from './book.service'; 
 import { Book } from './Schemas/book.schema';
+
+import {Query as ExpressQuery} from 'express-serve-static-core';
 
 @Controller('book')
 export class BookController {
     constructor(private bookService: BookService) { }
     
     @Get()
-    async getAllBooks() : Promise<Book[]> {
-        return this.bookService.findAll();
+    async getAllBooks(@Query() query : ExpressQuery ) : Promise<Book[]> {
+        return this.bookService.findAll(query);
     }
 
     @Post()
