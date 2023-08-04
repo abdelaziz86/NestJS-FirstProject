@@ -11,7 +11,8 @@ export class BookController {
     constructor(private bookService: BookService) { }
     
     @Get()
-    async getAllBooks(@Query() query : ExpressQuery ) : Promise<Book[]> {
+    async getAllBooks(@Query() query: ExpressQuery): Promise<Book[]> {
+        
         return this.bookService.findAll(query);
     }
 
@@ -22,6 +23,7 @@ export class BookController {
         book: CreateBookDto,
         @Req() req,
     ): Promise<Book> {
+        console.log(req.user); 
         return this.bookService.create(book, req.user);
     }
 
