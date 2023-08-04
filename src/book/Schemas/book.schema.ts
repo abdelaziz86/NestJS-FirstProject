@@ -13,7 +13,7 @@ export enum Category {
 @Schema({
     timestamps: true
 })
-export class Book extends Document {
+export class Book  {
     @Prop()
     title: string;
     @Prop()
