@@ -6,6 +6,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { GatewayModule } from './gateway/gateway.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -17,7 +19,10 @@ import { GatewayModule } from './gateway/gateway.module';
       dbName: process.env.DB_NAME,
     }), // ============ for mongo
     BookModule, AuthModule,
-    GatewayModule
+    GatewayModule,
+    ServeStaticModule.forRoot({
+      rootPath : join(__dirname, '..', 'client'),
+    })
   ],
   controllers: [AppController],
   providers: [AppService],
