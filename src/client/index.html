@@ -1,3 +1,9 @@
 <script type="text/javascript">
+const eventSource = new EventSource('/event') ; 
+eventSource.onmessage = ({data}) => {
+    const message = document.createElement('li') ; 
+    message.innerText = data ; 
 
+    document.body.appendChild(message) ;
+}
 </script>
