@@ -34,6 +34,7 @@ export class BookService {
 
         const res = await this.bookModel.create(data);
         return res;
+        
     }
 
     async findById(id: string): Promise<Book> {
